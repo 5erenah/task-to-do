@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Task Adder',
+  title: 'To Do List',
   description: 'Add Task',
 }
 
