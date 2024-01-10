@@ -18,8 +18,9 @@ interface TaskProps {
     const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
     const [openModalDeleted, setOpenModalDeleted] = useState<boolean>(false);
     const [taskToEdit, setTaskToEdit] = useState<string>(task.text);
-    // const [dateToEdit, setDateToEdit] = useState<Date>(new Date(task.due)); // Use 'Date' type for 'dateToEdit'
-    const [dateToEdit, setDateToEdit] = useState<Date>(task.due ? new Date(task.due) : new Date());
+    const [dateToEdit, setDateToEdit] = useState<Date | string>(
+        task.due ? new Date(task.due) : ''
+      );      
     // console.log(typeof(task.due));
   
     const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -65,8 +66,13 @@ interface TaskProps {
                 />
                 
                 <input
-                    value={dateToEdit.toISOString().substr(0, 10)} // Convert 'dateToEdit' to a string for input value
-                    onChange={(e) => setDateToEdit(new Date(e.target.value))} // Convert input value back to 'Date'
+                    // value={dateToEdit instanceof Date ? dateToEdit.toLocaleDateString('en-GB'): 'No due date'} 
+                    value={dateToEdit instanceof Date ? dateToEdit.toISOString().substr(0, 10) : ''} 
+                    // onChange={(e) => setDateToEdit(new Date(e.target.value))} // Convert input value back to 'Date'
+                    onChange={(e) => {
+                        const newDate = new Date(e.target.value);
+                        setDateToEdit(isNaN(newDate.getTime()) ? '' : newDate);
+                    }}
                     type="date"
                     placeholder="Due Date"
                     className="input input-bordered w-full"
