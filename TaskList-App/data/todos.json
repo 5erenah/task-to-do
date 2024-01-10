@@ -1,12 +1,29 @@
 {
-    "tasks": [
-        {
-            "id": "1",
-            "text": "buy milk"
-        },
-        {
-            "id": "2",
-            "text": "book flights"
-        }
-    ]
+  "tasks": [
+    {
+      "id": "e13acae3-f900-48cb-8d4e-46872ab28d6e",
+      "text": "Home",
+      "due": "2024-02-10T00:00:00.000Z"
+    },
+    {
+      "id": "326a9825-ba1c-4da8-b2e6-5af5beb0bbe6",
+      "text": "Go to the gym",
+      "due": "2024-01-17T00:00:00.000Z"
+    },
+    {
+      "id": "b0fcbdda-ac93-4796-a099-4379bdfe2132",
+      "text": "casca",
+      "due": null
+    },
+    {
+      "id": "69d01b75-3a7e-4ec8-b11b-b5d375065594",
+      "text": "Europe",
+      "due": "2024-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "b1a67986-519d-4862-ab5d-366bff9ea972",
+      "text": "Kor",
+      "due": "2024-01-27T00:00:00.000Z"
+    }
+  ]
 }
