@@ -14,14 +14,14 @@ const AddTask = () => {
     const [dueDate, setDueDate] = useState<Date | string>('');  //it can hold either a Date object or a string.
     // temporarily hold a string (from the input field) before being converted into a Date object.
 
-
     const handleSubmitNewToDo: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
-        // if (dueDate && isNaN(new Date(dueDate).getTime())) {
-        //     alert('Please enter a valid date.');
-        //     return;
-        // }
+        if (!newTaskValue.trim()) {
+            // If newTaskValue is empty or contains only whitespace, prevent submission
+            alert("Unable to Add Task: Please enter a task name.");
+            return;
+        }
 
         await addTodo({
             id: uuidv4(),
@@ -60,7 +60,7 @@ const AddTask = () => {
                     className="input input-bordered w-full"
                 />
                 
-                <button type="submit" className="btn-primary">SUBMIT</button>
+                <button type="submit" className='btn btn-primary'> SUBMIT</button>
 
                 </div>
             </form>
